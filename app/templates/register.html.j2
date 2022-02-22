@@ -1,0 +1,50 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+    <h1>Register</h1>
+    <form action="{{url_for('auth.register')}}" method='POST'>
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{form.first_name.label(class="form-label")}}
+            {{form.first_name(class="form-control")}}
+        </div>
+
+        <div>
+            {{form.last_name.label(class="form-label")}}
+            {{form.last_name(class="form-control")}}
+        </div>
+
+        <div>
+            {{form.email.label(class="form-label")}}
+            {{form.email(class="form-control")}}
+            {% for error in form.email.errors%}
+                <small style="color:red;">{{error}}</small><br>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{form.password.label(class="form-label")}}
+            {{form.password(class="form-control")}}
+        </div>
+
+        <div>
+            {{form.confirm_password.label(class="form-label")}}
+            {{form.confirm_password(class="form-control")}}
+            {% for error in form.confirm_password.errors%}   
+                <small style="color:red;">{{error}}</small><br>
+            {% endfor %}          
+        </div>
+        <br>
+        <div>
+        {{form.submit(class="bt btn-danger form-control")}}
+        </div>
+
+    </form>
+
+
+{% endblock %}

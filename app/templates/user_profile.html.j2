@@ -1,0 +1,63 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block css%}
+    <link href="{{url_for('static',filename='css/user_profile.css')}}" rel="stylesheet">
+    {% endblock%}
+
+{% block content %}
+
+    <h1>{{current_user.first_name}}'s Profile</h1>
+    <br>
+       <ul>
+      
+      <li>Battles Won: {{current_user.wins}}</li>
+      <li>Battles Lost: {{current_user.losses}} </li>
+      
+    </ul>
+    <br>
+    <h2>Edit Profile</h2>
+    <form action="{{url_for('auth.user_profile')}}" method='POST'>
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{form.first_name.label(class="form-label")}}
+            {{form.first_name(class="form-control", value=current_user.first_name)}}
+        </div>
+
+        <div>
+            {{form.last_name.label(class="form-label")}}
+            {{form.last_name(class="form-control", value=current_user.last_name)}}
+        </div>
+
+        <div>
+            {{form.email.label(class="form-label")}}
+            {{form.email(class="form-control", value=current_user.email)}}
+            {% for error in form.email.errors%}
+                <small style="color:red;">{{error}}</small><br>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{form.password.label(class="form-label")}}
+            {{form.password(class="form-control")}}
+        </div>
+
+        <div>
+            {{form.confirm_password.label(class="form-label")}}
+            {{form.confirm_password(class="form-control")}}
+            {% for error in form.confirm_password.errors%}   
+                <small style="color:red;">{{error}}</small><br>
+            {% endfor %}          
+        </div>
+        <br>
+        <div>
+        {{form.submit(class="bt btn-danger form-control")}}
+        <br>
+        </div>
+
+    </form>
+
+{% endblock %}

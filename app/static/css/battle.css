@@ -1,0 +1,14 @@
+body, html{
+    background-color: lightblue; 
+}
+
+#box_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;   
+}
+
+#box{
+    display: inline-block;
+    padding-bottom: 20px;
+}

@@ -1,0 +1,8 @@
+body, html{
+    background-color: lightblue;
+    background-image: url(../images/pokeimage.png);
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: 80% 92%;
+    background-attachment: fixed;
+}

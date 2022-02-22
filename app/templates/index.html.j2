@@ -1,0 +1,26 @@
+{% extends 'base.html.j2' %}
+{%block css%}
+    <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
+    {% endblock %}
+    
+
+<div class="container">
+ <div class="col-6">
+ <br>
+{% block title %}
+    PokeMain
+{% endblock %}
+
+{% block content %}
+    <h1>Pokedex</h1>
+    <h6>Got to catch 'em all! Become the greatest Pokemon trainer!</h6>
+    <br>
+    <h3>Now with teams of 6 Pokemon!</h3>
+    <h6>Create a team of 6 pokemon and go to the Battle section to face off against other people's teams in an epic contest!</h6>
+ </div>
+ <div id=pokeimage class="col-3">
+    <img class="img-fluid" alt="Responsive image" src="static/images/Hitmonlee.jpg">
+ </div>
+
+{% endblock %}
+</div>

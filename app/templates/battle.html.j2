@@ -1,0 +1,54 @@
+{% extends 'base.html.j2'%}
+{% block title %}
+ Battle
+{% endblock %}
+
+{% block css%}
+    <link href="{{url_for('static',filename='css/battle.css')}}" rel="stylesheet">
+    {% endblock%}
+
+{% block content %}
+    <div style="width: 100%">
+    <h1>Battle Other Trainers!</h1>
+    </div>
+    <hr>
+    <br>
+
+<div id="box_container" class="d-flex flex-row">
+    {% for user in users %}
+    
+    <div id="box" class="d-flex flex-row col-3 mx-1">
+        <div id="user-card" class="card col-3 mx-auto" style="width: 15rem;" >
+            <div class="row g-0">
+                <div class="col-md-4">
+                    
+                {% for poke in user.team%}
+                <div class="row">
+                    <div class="col-8">
+                 <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
+                    </div>
+                </div>
+                 {% endfor %}
+                </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{user.first_name}}'s team</h5>
+                <p class="card-text">
+                <br>
+                    <ul>               
+                        <li>Battles Won: {{user.wins}} </li>
+                        <li>Battles Lost: {{user.losses}} </li>                            
+                    </ul>
+                </p>
+                
+            <button id="button" type="button" class="card-button" onclick="location.href='{{url_for('social.battle', id=user.id)}}'">
+                Fight Opponent
+            </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+    </div>
+{% endblock %}

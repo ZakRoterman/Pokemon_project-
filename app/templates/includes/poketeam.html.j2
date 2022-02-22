@@ -1,0 +1,25 @@
+<div id="box" class="d-flex flex-row">
+<div id="card" class="card col-3 mx-auto" style="width: auto;">
+  <img src="{{poke.sprite}}" class="card-img-top" alt="poke sprite">
+  <div class="card-body">
+    <h5 class="card-title"  STYLE="text-transform:capitalize">{{poke.name}}</h5>
+    <p class="card-text">
+         <ul>
+      
+      <li>HP: {{poke.hp}}</li>
+      <li>Defense: {{poke.defense}}</li>
+      <li>Attack: {{poke.attack}}</li>
+      <li>Ability 1: {{poke.ability_1}}</li>
+        
+    </ul>
+
+    </p>
+    
+  </div>
+  {% if team %}
+  <a href="{{url_for('main.remove', id=poke.id)}}" class="btn btn-danger mx-3">Delete</a>
+  {% endif %}
+  <br>
+  </div>
+  
+  </div>
